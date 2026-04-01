@@ -5,35 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <div class="bg-grid"></div>
     <div class="container">
-      <h1>Expense Tracker</h1>
+
+      <header>
+        <div class="header-top">
+          <div class="logo-mark">$</div>
+          <h1>Expense<br/><span>Tracker</span></h1>
+        </div>
+        <div class="summary-bar">
+          <div class="summary-item">
+            <span class="summary-label">Total Spent</span>
+            <span class="summary-value" id="total-amount">0.00 Rs</span>
+          </div>
+          <div class="divider"></div>
+          <div class="summary-item">
+            <span class="summary-label">Entries</span>
+            <span class="summary-value" id="entry-count">0</span>
+          </div>
+          <div class="divider"></div>
+          <div class="summary-item">
+            <span class="summary-label">This Month</span>
+            <span class="summary-value" id="month-total">0.00 Rs</span>
+          </div>
+        </div>
+      </header>
+
       <form id="expense-form">
-        <input
-          type="text"
-          id="expense-name"
-          placeholder="Expense name"
-          required
-        />
-        <input
-          type="number"
-          id="expense-amount"
-          placeholder="Amount"
-          required
-        />
-        <button type="submit">Add Expense</button>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="expense-name">Description</label>
+            <input type="text" id="expense-name" placeholder="" required />
+          </div>
+          <div class="input-group input-small">
+            <label for="expense-amount">Amount</label>
+            <div class="amount-wrap">
+              <span class="currency-sign"></span>
+              <input type="number" id="expense-amount" placeholder="0.00" step="0.01" min="0.01" required />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="expense-category">Category</label>
+            <select id="expense-category">
+              <option value="General">🗂 General</option>
+              <option value="Food">🍔 Food & Drink</option>
+              <option value="Transport">🚗 Transport</option>
+              <option value="Shopping">🛍 Shopping</option>
+              <option value="Health">💊 Health</option>
+              <option value="Bills">📋 Bills</option>
+              <option value="Entertainment">🎮 Entertainment</option>
+              <option value="Travel">✈️ Travel</option>
+            </select>
+          </div>
+          <div class="input-group input-small">
+            <label for="expense-date">Date</label>
+            <input type="date" id="expense-date" required />
+          </div>
+        </div>
+        <button type="submit" id="add-btn">
+          <span class="btn-icon">+</span> Add Expense
+        </button>
       </form>
 
-      <h2>Expenses</h2>
-      <ul id="expense-list">
-       
-      </ul>
-
-      <div id="total">
-        <h3>Total: $<span id="total-amount">0.00</span></h3>
+      <div class="list-header">
+        <h2>Expenses</h2>
+        <div class="filter-row">
+          <input type="text" id="search-input" placeholder="Search…" />
+          <select id="filter-category">
+            <option value="All">All Categories</option>
+            <option value="General">🗂 General</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Transport">🚗 Transport</option>
+            <option value="Shopping">🛍 Shopping</option>
+            <option value="Health">💊 Health</option>
+            <option value="Bills">📋 Bills</option>
+            <option value="Entertainment">🎮 Entertainment</option>
+            <option value="Travel">✈️ Travel</option>
+          </select>
+        </div>
       </div>
+
+      <ul id="expense-list"></ul>
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">💸</div>
+        <p>No expenses yet.<br/>Add your first one above!</p>
+      </div>
+
+      <button id="clear-btn" class="clear-btn hidden">Clear All</button>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
