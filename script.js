@@ -1,4 +1,4 @@
-const API = "http://localhost:8000/api/expenses";
+const API = "https://expense-tracker-bb02.onrender.com/api/expenses";
 
 document.addEventListener("DOMContentLoaded", function () {
   const form            = document.getElementById("expense-form");
