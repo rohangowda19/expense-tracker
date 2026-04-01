@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="expense-category-tag">${escapeHtml(expense.category)}</span>
           </div>
         </div>
-        <span class="expense-amount">$${expense.amount.toFixed(2)}</span>
+        <span class="expense-amount">${expense.amount.toFixed(2)}Rs</span>
         <button class="delete-btn" data-id="${expense._id}" title="Delete">✕</button>
       `;
       expenseList.appendChild(li);
@@ -154,9 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .reduce((sum, e) => sum + e.amount, 0);
 
-    totalAmountEl.textContent = `$${total.toFixed(2)}`;
+    totalAmountEl.textContent = `${total.toFixed(2)}Rs`;
     entryCountEl.textContent  = expenses.length;
-    monthTotalEl.textContent  = `$${thisMonth.toFixed(2)}`;
+    monthTotalEl.textContent  = `${thisMonth.toFixed(2)}Rs`;
   }
 
   function formatDate(dateStr) {
