@@ -1,5 +1,5 @@
-const API      = "https://expense-tracker-api-xxs7.onrender.com/api";
-//const API = "http://localhost:8000/api";
+const API = "https://expense-tracker-api-xxs7.onrender.com/api";
+
 const AUTH_API = `${API}/auth`;
 const EXP_API  = `${API}/expenses`;
 
