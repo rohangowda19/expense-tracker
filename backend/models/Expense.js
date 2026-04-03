@@ -21,10 +21,16 @@ const ExpenseSchema = new mongoose.Schema(
       type: String,
       required: [true, "Date is required"],
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+   },
+
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Expense", ExpenseSchema);
+module.exports = mongoose.models.Expense || mongoose.model("Expense", ExpenseSchema);
