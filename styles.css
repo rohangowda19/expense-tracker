@@ -488,3 +488,20 @@ input:focus, select:focus {
   color: var(--danger);
   border-color: rgba(239,68,68,0.4);
 }
+@media (max-width: 480px) {
+  .header-top {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .user-info {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  #username-display {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
